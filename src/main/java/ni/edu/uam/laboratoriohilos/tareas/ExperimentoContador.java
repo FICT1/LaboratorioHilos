@@ -1,8 +1,9 @@
 package ni.edu.uam.laboratoriohilos.tareas;
-import modelo.Contador;
-import modelo.ContadorAtomico;
-import modelo.ContadorCompartido;
-import modelo.ContadorSinProteccion;
+
+import ni.edu.uam.laboratoriohilos.modelo.Contador;
+import ni.edu.uam.laboratoriohilos.modelo.ContadorAtomico;
+import ni.edu.uam.laboratoriohilos.modelo.ContadorCompartido;
+import ni.edu.uam.laboratoriohilos.modelo.ContadorSinProteccion;
 
 /** Diez rondas: 2 hilos x 1 000 incrementos = 2 000 esperados. */
 public final class ExperimentoContador {
