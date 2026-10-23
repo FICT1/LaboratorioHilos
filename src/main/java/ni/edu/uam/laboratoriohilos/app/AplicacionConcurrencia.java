@@ -1,7 +1,5 @@
 package ni.edu.uam.laboratoriohilos.app;
 
-package app;
-
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -16,7 +14,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import tareas.ExperimentoContador;
+import ni.edu.uam.laboratoriohilos.tareas.ExperimentoContador;
 
 /** Actualiza la UI cada 100 ms, sin hacer un runLater por solicitud. */
 public final class AplicacionConcurrencia extends Application {

@@ -17,7 +17,7 @@ mvn clean javafx:run
 ## Ejecutar las pruebas en consola
 ```bash
 mvn exec:java -Dexec.mainClass=tareas.DemostracionThreadRunnable
-mvn exec:java -Dexec.mainClass=tareas.DemostracionEstados
+mvn exec:java -Dexec.mainClass=ni.edu.uam.laboratoriohilos.tareas.DemostracionEstados
 mvn exec:java -Dexec.mainClass=tareas.ExperimentoContador
 ```
 

@@ -1,13 +1,11 @@
 package ni.edu.uam.laboratoriohilos.app;
 
-package app;
-
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import modelo.ContadorCompartido;
-import modelo.ControlEjecucion;
-import tareas.MonitorEstados;
-import tareas.ProcesoVentanilla;
+import ni.edu.uam.laboratoriohilos.modelo.ContadorCompartido;
+import ni.edu.uam.laboratoriohilos.modelo.ControlEjecucion;
+import ni.edu.uam.laboratoriohilos.tareas.MonitorEstados;
+import ni.edu.uam.laboratoriohilos.tareas.ProcesoVentanilla;
 
 /** Encapsula los hilos de UNA sesión; una nueva sesión crea objetos nuevos. */
 public final class SesionTrabajo {
