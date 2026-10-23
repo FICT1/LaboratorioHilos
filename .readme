@@ -1,0 +1,43 @@
+# Laboratorio de concurrencia con JavaFX
+
+Aplicación Maven (JDK 17 o superior) con dos ventanillas que procesan 1 000 solicitudes
+cada una en paralelo, contador sincronizado, observación de estados y cancelación
+cooperativa. La ventana permanece operativa durante la ejecución.
+
+## Requisitos
+- JDK 17 o superior; `java -version` y `mvn -version`.
+- Apache Maven e IntelliJ IDEA (opcional para ejecutar por terminal).
+- Conexión a internet en la primera compilación para resolver JavaFX desde Maven.
+
+## Ejecutar la interfaz
+```bash
+mvn clean javafx:run
+```
+
+## Ejecutar las pruebas en consola
+```bash
+mvn exec:java -Dexec.mainClass=tareas.DemostracionThreadRunnable
+mvn exec:java -Dexec.mainClass=tareas.DemostracionEstados
+mvn exec:java -Dexec.mainClass=tareas.ExperimentoContador
+```
+
+## Comportamientos de la aplicación
+- **Iniciar**: crea nuevos Thread y un contador nuevo para una sesión.
+- **Detener**: cambia una bandera `volatile` e interrumpe las ventanillas.
+- **Estados**: muestra `getState()` periódicamente, sin bloquear JavaFX.
+- **Probar sincronización**: compara 10 rondas con contador inseguro,
+  `synchronized` y `AtomicInteger`, ejecutadas fuera del hilo de JavaFX.
+- **Reiniciar**: habilitado únicamente cuando las dos ventanillas acabaron.
+
+## Organización de los cuatro integrantes
+1. `feature/integrante-1`: Thread/Runnable y demostración.
+2. `feature/integrante-2`: monitor y experimento de estados.
+3. `feature/integrante-3`: contadores y prueba concurrente.
+4. `feature/integrante-4`: integración JavaFX, sesión, parada y Maven.
+
+La rama `main` es estable y únicamente la integra el líder mediante PR revisados.
+
+## Evidencias y entregables
+Incluyan 3 capturas reales, tabla de 10 rondas, informe de máximo una página,
+historial de commits, las cinco ramas, PR revisados y acceso del docente.
+Completen `docs/tabla-pruebas.md` con salidas realmente observadas.
