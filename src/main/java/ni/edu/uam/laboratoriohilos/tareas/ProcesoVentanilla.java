@@ -1,8 +1,8 @@
 package ni.edu.uam.laboratoriohilos.tareas;
 
 import java.util.Queue;
-import modelo.Contador;
-import modelo.ControlEjecucion;
+import ni.edu.uam.laboratoriohilos.modelo.Contador;
+import ni.edu.uam.laboratoriohilos.modelo.ControlEjecucion;
 
 /** Cada ventanilla trabaja en un Thread y nunca accede a controles JavaFX. */
 public final class ProcesoVentanilla implements Runnable {
