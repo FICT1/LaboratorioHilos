@@ -1,4 +1,8 @@
 package ni.edu.uam.laboratoriohilos.modelo;
 
-public class Contador {
+
+/** Contrato para comparar contadores con distintos mecanismos. */
+public interface Contador {
+    void incrementar();
+    int obtener();
 }
