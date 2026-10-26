@@ -1,13 +1,12 @@
 # LaboratorioHilos — JavaFX + FXML + Scene Builder + Maven
 
 Proyecto JavaFX basado en la estructura y las tareas del repositorio `FICT1/LaboratorioHilos`
-y el laboratorio guiado de concurrencia. Esta entrega es un **ZIP local**; no actualiza GitHub.
+y el laboratorio guiado de concurrencia.
 
 ## Requisitos
 - **Temurin JDK 21.0.12**, recomendado. Compilación configurada para Java 17.
 - **Apache Maven 3.9+**, o IntelliJ IDEA con soporte Maven.
 - **JavaFX Scene Builder** para editar el diseño `.fxml` visualmente.
-- Internet la primera vez para descargar dependencias desde **Maven Central**.
 
 ## Abrir en IntelliJ IDEA
 1. Descomprimir el ZIP.
@@ -56,8 +55,3 @@ mvn exec:java -Dexec.mainClass=ni.edu.uam.laboratoriohilos.tareas.VerificacionCo
 - C.Santana: estado de hilos, monitor y prueba `TIMED_WAITING`.
 - Franklin: sincronización, `AtomicInteger` y prueba de incrementos.
 - Jeremy: aplicación JavaFX y control de sesiones.
-
-## Entrega del laboratorio
-Completar con evidencia **real** las tres capturas, 10 rondas de resultados,
-la tabla de pruebas, el informe de una página y los PR/commits correspondientes.
-Se incluyen plantillas en `docs/` que no sustituyen las ejecuciones.
