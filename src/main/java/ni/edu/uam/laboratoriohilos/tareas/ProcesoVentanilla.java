@@ -14,8 +14,8 @@ public final class ProcesoVentanilla implements Runnable {
     private final int pausaMillis;
 
     public ProcesoVentanilla(String nombre, Contador contador,
-                             ControlEjecucion control, Queue<String> registro,
-                             int limite, int pausaMillis) {
+            ControlEjecucion control, Queue<String> registro,
+            int limite, int pausaMillis) {
         this.nombre = nombre;
         this.contador = contador;
         this.control = control;

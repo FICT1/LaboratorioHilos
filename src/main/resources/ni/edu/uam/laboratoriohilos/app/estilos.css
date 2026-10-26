@@ -1,0 +1,82 @@
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-background-color: #f4f7fb;
+}
+.encabezado {
+    -fx-background-color: #153354;
+}
+.titulo {
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+.subtitulo {
+    -fx-font-size: 13px;
+    -fx-text-fill: #cbdaef;
+}
+.cuerpo {
+    -fx-background-color: #f4f7fb;
+}
+.etiqueta, .dato, .estado-hilos {
+    -fx-font-size: 13px;
+    -fx-text-fill: #516175;
+}
+.estado {
+    -fx-background-color: #e5f2fa;
+    -fx-background-radius: 12;
+    -fx-padding: 5 12;
+    -fx-text-fill: #0c588c;
+    -fx-font-weight: bold;
+}
+.contador {
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16385f;
+}
+.progress-bar .bar {
+    -fx-background-color: #0d8cad;
+    -fx-background-radius: 7;
+}
+.progress-bar .track {
+    -fx-background-color: #d8e2ed;
+    -fx-background-radius: 7;
+}
+.titulo-registro {
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-text-fill: #16385f;
+}
+.registro {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+}
+.registro .content {
+    -fx-background-color: white;
+}
+.pie {
+    -fx-background-color: white;
+    -fx-border-color: #dbe4ef;
+    -fx-border-width: 1 0 0 0;
+}
+.button {
+    -fx-padding: 9 16;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 7;
+    -fx-cursor: hand;
+}
+.boton-iniciar {
+    -fx-background-color: #0d8a6a;
+    -fx-text-fill: white;
+}
+.boton-detener {
+    -fx-background-color: #cd5d51;
+    -fx-text-fill: white;
+}
+.boton-pruebas {
+    -fx-background-color: #204b7b;
+    -fx-text-fill: white;
+}
+.button:disabled {
+    -fx-opacity: 0.45;
+}

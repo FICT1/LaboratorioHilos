@@ -1,25 +1,24 @@
-# Informe breve 
+# Informe breve — completar después de ejecutar el laboratorio
 
-Equipo: 3  Integrantes: Franklin, Cristopher, Juan y Jeremy Fecha: 23/10/2026
+Equipo: ______________  Integrantes: _________________________
 
-**1. Error antes de sincronizar.** Al ejecutar dos incrementadores sobre la misma
-variable sin sincronización, puede ocurrir una condición de carrera: ambos leen
-el mismo valor y sobrescriben una actualización. En nuestras diez rondas
-observamos: [escribir resultados reales y señalar un caso si hubo pérdida].
+**1. ¿Qué error apareció antes de sincronizar?**
 
-**2. Cómo se evitó bloquear JavaFX.** Se ejecutaron las ventanillas con
-`Thread.start()`. Las pruebas que utilizan `join()` se ejecutan en un hilo
-auxiliar. El `Timeline` actualiza el contador y el registro cada 100 ms en el
-hilo gráfico. Para los resultados de pruebas se utilizó `Platform.runLater()`.
+Explicar la condición de carrera y anotar una ronda observada: __________
 
-**3. Condiciones para detener y reiniciar.** `volatile` publica la solicitud de
-cancelación y `interrupt()` permite salir de `sleep()`. La aplicación no vuelve a
-habilitar **Iniciar** hasta que `isAlive()` sea falso para ambos hilos.
-Observación real de nuestro ensayo de detención: [completar].
+**2. ¿Cómo evitó bloquear JavaFX?**
 
-**4. Mejora para 100 000 solicitudes.** Usaríamos un `ExecutorService` de tamaño
-controlado, colas acotadas y lotes de trabajo; separaríamos frecuencia de
-procesamiento y refresco gráfico para evitar saturar JavaFX. Mantendríamos
-medidas de rendimiento, control de cancelación y pruebas automatizadas.
+Indicar que `Thread.start()` ejecuta tareas de fondo; el `Timeline` actualiza
+la vista cada 100 ms; nunca hay `join()` en eventos de JavaFX.
 
-**Reflexión:** [agregar 2–3 oraciones propias sobre qué aprendió el equipo].
+**3. ¿Qué condiciones verificó para detener y reiniciar?**
+
+Describir bandera `volatile`, `interrupt()`, `InterruptedException` y
+esperar `haTerminado()` antes de iniciar otra sesión. Anotar prueba real.
+
+**4. ¿Qué mejoraría para 100 000 solicitudes?**
+
+Proponer `ExecutorService`, colas limitadas, trabajo por lotes, tiempos medidos
+y control del tamaño del registro gráfico.
+
+**Reflexión del equipo:** _________________________________

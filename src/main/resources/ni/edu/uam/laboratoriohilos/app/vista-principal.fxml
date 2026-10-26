@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="690.0" prefWidth="950.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@estilos.css"
+            fx:controller="ni.edu.uam.laboratoriohilos.app.ControladorPrincipal">
+    <top>
+        <VBox spacing="8.0" styleClass="encabezado">
+            <padding>
+                <Insets top="22.0" bottom="22.0" left="28.0" right="28.0" />
+            </padding>
+            <Label text="LABORATORIO DE CONCURRENCIA" styleClass="titulo" />
+            <Label text="Procesamiento simultáneo de dos ventanillas · JavaFX, Thread y Runnable"
+                   styleClass="subtitulo" />
+        </VBox>
+    </top>
+    <center>
+        <VBox spacing="15.0" styleClass="cuerpo">
+            <padding>
+                <Insets top="22.0" bottom="16.0" left="28.0" right="28.0" />
+            </padding>
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+                <Label text="Estado:" styleClass="etiqueta" />
+                <Label fx:id="etiquetaEstado" text="En espera" styleClass="estado" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="2 ventanillas · 1000 solicitudes cada una" styleClass="dato" />
+            </HBox>
+            <Label fx:id="etiquetaContador" text="Operaciones completadas: 0 / 2000"
+                   styleClass="contador" />
+            <ProgressBar fx:id="barraProgreso" progress="0.0" maxWidth="1.7976931348623157E308"
+                         prefHeight="12.0" />
+            <Label fx:id="etiquetaHilos" text="Las ventanillas todavía no se han iniciado"
+                   styleClass="estado-hilos" wrapText="true" />
+            <Separator />
+            <Label text="Registro de actividad" styleClass="titulo-registro" />
+            <TextArea fx:id="areaRegistro" editable="false" wrapText="true"
+                      prefHeight="380.0" VBox.vgrow="ALWAYS" styleClass="registro" />
+        </VBox>
+    </center>
+    <bottom>
+        <HBox spacing="12.0" alignment="CENTER_LEFT" styleClass="pie">
+            <padding>
+                <Insets top="18.0" bottom="20.0" left="28.0" right="28.0" />
+            </padding>
+            <Button fx:id="botonIniciar" text="Iniciar" onAction="#iniciarSesion"
+                    styleClass="boton-iniciar" prefWidth="120.0" />
+            <Button fx:id="botonDetener" text="Detener" onAction="#detenerSesion"
+                    styleClass="boton-detener" prefWidth="120.0" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="botonPruebas" text="Probar sincronización (10 rondas)"
+                    onAction="#ejecutarPruebas" styleClass="boton-pruebas" />
+        </HBox>
+    </bottom>
+</BorderPane>

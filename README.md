@@ -1,41 +1,63 @@
-# Laboratorio de concurrencia en JavaFX
+# LaboratorioHilos — JavaFX + FXML + Scene Builder + Maven
 
-**Repositorio:** FICT1/LaboratorioHilos. **Rama para integración:** `Roman`.
+Proyecto JavaFX basado en la estructura y las tareas del repositorio `FICT1/LaboratorioHilos`
+y el laboratorio guiado de concurrencia. Esta entrega es un **ZIP local**; no actualiza GitHub.
 
-El programa ejecuta dos ventanillas en hilos independientes, incrementa un contador seguro,
-observa estados y permite detenerlas mediante `volatile` + `interrupt()`. El refresco JavaFX
-se realiza con `Timeline` cada 100 ms; no se bloquea el hilo gráfico con `join()`.
+## Requisitos
+- **Temurin JDK 21.0.12**, recomendado. Compilación configurada para Java 17.
+- **Apache Maven 3.9+**, o IntelliJ IDEA con soporte Maven.
+- **JavaFX Scene Builder** para editar el diseño `.fxml` visualmente.
+- Internet la primera vez para descargar dependencias desde **Maven Central**.
 
-## Entorno y ejecución
+## Abrir en IntelliJ IDEA
+1. Descomprimir el ZIP.
+2. En IntelliJ: **Open** → seleccionar la carpeta `LaboratorioHilos_Roman_JavaFX_SceneBuilder_Maven`.
+3. Aceptar **Load Maven Project** o **Reload All Maven Projects**.
+4. Seleccionar JDK 21 como **Project SDK** y **Maven JDK**.
+5. Desde Maven, ejecutar **Plugins → javafx → javafx:run**; o en terminal:
 
-- Temurin JDK 17 o superior (recomendado JDK 21).
-- Maven Wrapper incluido en el repositorio; se requieren dependencias descargables la primera vez.
-- Para abrir la aplicación (Windows):
-
-```powershell
-.\mvnw.cmd clean verify
-.\mvnw.cmd javafx:run
+```bash
+mvn clean javafx:run
 ```
 
-En Linux/macOS use `./mvnw` en lugar de `.\mvnw.cmd`.
-La clase principal es `ni.edu.uam.laboratoriohilos.app.AplicacionConcurrencia`.
+## Editar interfaz en Scene Builder
+1. Instalar JavaFX Scene Builder (por ejemplo, Gluon Scene Builder).
+2. Abrir directamente **`src/main/resources/ni/edu/uam/laboratoriohilos/app/vista-principal.fxml`**.
+3. Cambiar distribución, botones, etiquetas, colores; el archivo `estilos.css` está en la misma carpeta.
+4. Guardar y volver a ejecutar `mvn javafx:run`.
+5. Mantener `fx:id`, `fx:controller` y `onAction` o actualizar también `ControladorPrincipal.java`.
 
-## Pruebas en consola (Windows)
+> Scene Builder muestra y edita el diseño FXML. La ejecución real de hilos se prueba
+> desde IntelliJ/Maven, no desde la vista previa de Scene Builder.
 
-```powershell
-.\mvnw.cmd exec:java -Dexec.mainClass=ni.edu.uam.laboratoriohilos.tareas.DemostracionThreadRunnable
-.\mvnw.cmd exec:java -Dexec.mainClass=ni.edu.uam.laboratoriohilos.tareas.DemostracionEstados
-.\mvnw.cmd exec:java -Dexec.mainClass=ni.edu.uam.laboratoriohilos.tareas.ExperimentoContador
-.\mvnw.cmd exec:java -Dexec.mainClass=ni.edu.uam.laboratoriohilos.tareas.VerificacionConcurrencia
+## Comandos Maven
+```bash
+mvn clean compile
+mvn test
+mvn javafx:run
+mvn exec:java -Dexec.mainClass=ni.edu.uam.laboratoriohilos.tareas.DemostracionThreadRunnable
+mvn exec:java -Dexec.mainClass=ni.edu.uam.laboratoriohilos.tareas.DemostracionEstados
+mvn exec:java -Dexec.mainClass=ni.edu.uam.laboratoriohilos.tareas.ExperimentoContador
+mvn exec:java -Dexec.mainClass=ni.edu.uam.laboratoriohilos.tareas.VerificacionConcurrencia
 ```
 
-`VerificacionConcurrencia` realiza 10 rondas con contadores seguros, comprueba detención
-cooperativa y reinicio limpio. Lanza un error si alguna condición falla.
+## Qué hace cada módulo
+- `app/AplicacionConcurrencia.java`: arranca la ventana cargando FXML.
+- `app/ControladorPrincipal.java`: botones, estado, progreso, registro, cancelación y refresco periódico.
+- `app/SesionTrabajo.java`: crea y controla los hilos de ambas ventanillas por sesión.
+- `modelo`: contador inseguro, sincronizado, atómico y bandera de detención `volatile`.
+- `tareas`: `Runnable`, estados, monitor, experimento de 10 rondas y verificaciones.
+- `vista-principal.fxml`: **editable visualmente** en Scene Builder.
+- `estilos.css`: apariencia de la interfaz; editable en cualquier editor.
+- `pom.xml`: resuelve automáticamente JavaFX y JUnit desde Maven Central.
 
-## Trabajo de las ramas
+## Organización de cuatro personas (referencia)
+- Roman: `Thread`, `Runnable`, proceso de las ventanillas.
+- C.Santana: estado de hilos, monitor y prueba `TIMED_WAITING`.
+- Franklin: sincronización, `AtomicInteger` y prueba de incrementos.
+- Jeremy: aplicación JavaFX y control de sesiones.
 
-- `Roman`: Thread, Runnable y las dos ventanillas.
-- `C.Santana`: estados de los hilos y monitor.
-- `Franklin`: contadores, sincronización y experimentos.
-- `Jeremy`: interfaz y gestión de sesión.
-- `main`: integración previa de esas contribuciones.
+## Entrega del laboratorio
+Completar con evidencia **real** las tres capturas, 10 rondas de resultados,
+la tabla de pruebas, el informe de una página y los PR/commits correspondientes.
+Se incluyen plantillas en `docs/` que no sustituyen las ejecuciones.

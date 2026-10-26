@@ -1,4 +1,5 @@
 package ni.edu.uam.laboratoriohilos.modelo;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 /** Alternativa sin synchronized para un contador simple. */
