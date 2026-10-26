@@ -17,6 +17,11 @@
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -33,7 +38,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>app.AplicacionConcurrencia</mainClass>
+                    <mainClass>ni.edu.uam.laboratoriohilos/ni.edu.uam.laboratoriohilos.app.AplicacionConcurrencia</mainClass>
                 </configuration>
             </plugin>
             <plugin>
